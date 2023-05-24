@@ -5,14 +5,20 @@ from lllist import LLList
 def sum_k(ll_list, k):
     count = 0
 
-    for i in range(ll_list.length()):
-        item1 = ll_list.get_item(i)
+    i = 0
+    it1 = ll_list.iterator()
+    while it1.has_next():
+        item1 = it1.next()
 
-        for j in range (i, ll_list.length()):
-            item2 = ll_list.get_item(j)
+        j = 0
+        it2 = ll_list.iterator()
+        while it2.has_next():
+            item2 = it2.next()
 
-            if item1 + item2 == k:
+            if i != j and item1 + item2 == k:
                 count += 1
+            j += 1
+        i += 1
 
     return count
 
